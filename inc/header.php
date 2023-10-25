@@ -32,12 +32,20 @@
 				<a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
 				<a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
 			</div>
-			<div class="searchbtn clear">
-			<form action="" method="post">
-				<input type="text" name="keyword" placeholder="Search keyword..."/>
-				<input type="submit" name="submit" value="Search"/>
-			</form>
-			</div>
+            <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-6 col-sm-12">
+                    <div class="searchbtn clear">
+                        <form action="" method="post" class="form-inline">
+                            <div class="form-group">
+                                <input type="text" name="keyword" placeholder="Search keyword..." class="form-control"/>
+                                <input type="submit" name="submit" value="Search" class="btn btn-primary"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 		</div>
 	</div>
 <div class="navsection templete">
@@ -70,14 +78,33 @@
 
 	
 <div class="slidersection templete clear">
-        <div id="slider">
+        <!-- <div id="slider">
             <a href="#"><img src="images/slideshow/01.jpg" alt="nature 1" title="This is slider one Title or Description" /></a>
             <a href="#"><img src="images/slideshow/02.jpg" alt="nature 2" title="This is slider Two Title or Description" /></a>
             <a href="#"><img src="images/slideshow/03.jpg" alt="nature 3" title="This is slider three Title or Description" /></a>
             <a href="#"><img src="images/slideshow/04.jpg" alt="nature 4" title="This is slider four Title or Description" /></a>
-        </div>
+        </div> -->
 
+
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/slideshow/01.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images/slideshow/02.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images/slideshow/03.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images/slideshow/04.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
 </div>
+</div>
+
+
 
 
 
