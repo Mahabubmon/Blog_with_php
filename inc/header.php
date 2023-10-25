@@ -14,6 +14,18 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
+    <!-- <style>
+        /* Your custom styles */
+        .sidebar {
+            border: 1px solid #ded4c5;
+            float: right;
+            margin-bottom: 15px;
+            margin-top: 0;
+            padding: 10px;
+            width: 253px;
+        }
+    </style> -->
+
 </head>
 
 <body>
@@ -21,8 +33,8 @@
 		<a href="#">
 			<div class="logo">
 				<img src="images/logo.png" alt="Logo"/>
-				<h2>Website Title</h2>
-				<p>Our website description</p>
+				<h2>Move To Any Where</h2>
+				<p>Get your best path to move...</p>
 			</div>
 		</a>
 		<div class="social clear">
@@ -56,7 +68,7 @@
       </button>
       
       <a class="navbar-brand" href="#" >
-        <h5 class="logo-icon"><br>Md. Mahabubur Rahman</h5>
+        <h5 class="logo-icon"><br></h5>
         <img src="image/logo2.png" alt="">
       </a>
     
@@ -77,32 +89,7 @@
 </div>
 
 	
-<div class="slidersection templete clear">
-        <!-- <div id="slider">
-            <a href="#"><img src="images/slideshow/01.jpg" alt="nature 1" title="This is slider one Title or Description" /></a>
-            <a href="#"><img src="images/slideshow/02.jpg" alt="nature 2" title="This is slider Two Title or Description" /></a>
-            <a href="#"><img src="images/slideshow/03.jpg" alt="nature 3" title="This is slider three Title or Description" /></a>
-            <a href="#"><img src="images/slideshow/04.jpg" alt="nature 4" title="This is slider four Title or Description" /></a>
-        </div> -->
 
-
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="images/slideshow/01.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="images/slideshow/02.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="images/slideshow/03.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="images/slideshow/04.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-</div>
-</div>
 
 
 
