@@ -14,15 +14,15 @@ function my_autoload_register($class)
 {
     $class = strtolower($class);
 
-    $classpath = 'classes/class.' . $class . '.php';
+    $classpath = __DIR__ . '/classes/class.' . $class . '.php'; // Use __DIR__ to get the current directory
     if (file_exists($classpath)) {
         require_once $classpath;
     }
-    $classpath = '../classes/class.' . $class . '.php';
+    $classpath = __DIR__ . '/../classes/class.' . $class . '.php'; // Use __DIR__ to get the current directory
     if (file_exists($classpath)) {
         require_once $classpath;
     }
-    $classpath = '../../classes/class.' . $class . '.php';
+    $classpath = __DIR__ . '/../../classes/class.' . $class . '.php'; // Use __DIR__ to get the current directory
     if (file_exists($classpath)) {
         require_once $classpath;
     }
