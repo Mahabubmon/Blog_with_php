@@ -33,9 +33,25 @@ class User
             $row = $smt->fetch();
             return $row['password'];
         } catch (PDOException $e) {
-            echo '<p>Invalid username or password</p>';
+            echo '<p class="error">' . $e->getMessage() . '</p>';
         }
     }
+    public function login($username, $password)
+    {
+        $hashed = $this->get_user_hash($username);
+        if ($this->verify_hash($password, $hashed) == 1) {
+
+            $_SESSION['loggedin'] = true;
+            return true;
+        }
+    }
+    public function logout()
+    {
+        session_destroy();
+
+    }
+
+
 }
 
 ?>

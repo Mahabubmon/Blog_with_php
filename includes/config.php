@@ -33,4 +33,3 @@ spl_autoload_register('my_autoload_register');
 
 $user = new User($db);
 
-?>
