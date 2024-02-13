@@ -23,11 +23,12 @@ class User
         return password_verify($password, $hash);
     }
 
-    private function get_user_hash($username)
+    private function get_user_hash($user_name)
     {
         try {
-            $smt = $this->db->prepare('SELECT password FROM blog_user WHERE user_name = :username');
-            $smt->execute(array('username' => $username));
+
+            $smt = $this->db->prepare('SELECT password FROM blog_user WHERE user_name = :user_name');
+            $smt->execute(array('user_name' => $user_name));
             $row = $smt->fetch();
             if ($row) {
                 return $row['password'];
@@ -40,9 +41,9 @@ class User
     }
 
 
-    public function login($username, $password)
+    public function login($user_name, $password)
     {
-        $hashed = $this->get_user_hash($username);
+        $hashed = $this->get_user_hash($user_name);
         if ($hashed !== false && $hashed !== null && $this->verify_hash($password, $hashed)) {
             $_SESSION['loggedin'] = true;
             return true;

@@ -20,13 +20,13 @@ if ($user->is_logged_in()) {
 <body>
     <?php
     if (isset($_POST['submit'])) {
-        $username = trim($_POST['user_name']);
+        $user_name = trim($_POST['user_name']);
         $password = trim($_POST['password']);
-        if ($user->login($username, $password)) {
+        if ($user->login($user_name, $password)) {
             header('location: index.php');
             exit();
         } else {
-            $message = '<p>Invalid username or password</p>';
+            $message = '<p>Invalid user_name or password</p>';
         }
     }
     if (isset($message)) {
@@ -35,7 +35,7 @@ if ($user->is_logged_in()) {
     ?>
 
     <form action="" method="POST" class="form">
-        <label for="">Username</label>
+        <label for="">user_name</label>
         <input type="text" name="user_name" id="user_name" required>
         <br>
         <label for="">Password</label>
