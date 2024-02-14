@@ -14,7 +14,16 @@ if (isset($_GET['delpost'])) {
 
 
 }
-
-
-
 ?>
+
+<?php include("head.php"); ?>
+
+<title>Admin Page</title>
+
+<script>
+    function delpost(id, title) {
+        if (confirm("Are you sure want to delete'" + title + "'")) {
+            window.location.href = 'index.php?delpost=' + id;
+        }
+    }
+</script>
