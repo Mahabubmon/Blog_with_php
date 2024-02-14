@@ -35,7 +35,7 @@ if ($user->is_logged_in()) {
     ?>
 
     <form action="" method="POST" class="form">
-        <label for="">user_name</label>
+        <label for="">User Name</label>
         <input type="text" name="user_name" id="user_name" required>
         <br>
         <label for="">Password</label>
