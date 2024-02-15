@@ -1,13 +1,3 @@
-<?php
-require_once('../includes/config.php');
-
-if ($user->is_logged_in()) {
-    header('location:index.php');
-    exit(); // Make sure to exit after redirecting
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,21 +8,6 @@ if ($user->is_logged_in()) {
 </head>
 
 <body>
-    <?php
-    if (isset($_POST['submit'])) {
-        $user_name = trim($_POST['user_name']);
-        $password = trim($_POST['password']);
-        if ($user->login($user_name, $password)) {
-            header('location: index.php');
-            exit();
-        } else {
-            $message = '<p>Invalid user_name or password</p>';
-        }
-    }
-    if (isset($message)) {
-        echo $message; // Corrected syntax
-    }
-    ?>
 
     <form action="" method="POST" class="form">
         <label for="">User Name</label>
