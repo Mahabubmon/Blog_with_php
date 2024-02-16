@@ -25,6 +25,20 @@
         <a href="#route">Route</a>
     </div>
 
+
+    <main>
+        <h1 class="cardHeading">Main Section For Conent</h1>
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCeju03n7p4g8UVAECZhx2zY6ukEnHAhMOBA&usqp=CAU"
+                alt="">
+            <div class="container">
+                <h4><b>Chose You own Way</b></h4>
+                <p>Multi place to visit</p>
+            </div>
+        </div>
+
+    </main>
+
 </body>
 
 </html>
