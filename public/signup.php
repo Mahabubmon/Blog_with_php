@@ -175,8 +175,13 @@
         <form method="post">
             <img class="mb-4 rounded-circle shadow" src="assets/images/download (1).jpeg" alt="" width="92"
                 style="object-fit:cover; margin-left: 100px;">
-            <h1 class="h3 mb-3 fw-normal" style="margin-left: 55px">Please sign in</h1>
+            <h1 class="h3 mb-3 fw-normal" style="margin-left: 55px">Create Account</h1>
 
+            <div class="form-floating">
+                <input name="user_name" type="text" class="form-control mb-2" id="floatingInput"
+                    placeholder="User Name...">
+                <label for="floatingInput">User Name</label>
+            </div>
             <div class="form-floating">
                 <input name="email" type="email" class="form-control mb-2" id="floatingInput"
                     placeholder="name@example.com">
@@ -187,16 +192,19 @@
                     placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
-
-            <div class="my-2">Don't have an account? <a href="signup.php">Signup here</a></div>
-
+            <div class="form-floating">
+                <input name="retype_password" type="password" class="form-control mb-2" id="floatingPassword"
+                    placeholder="Retype Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="my-2">Already have an account? <a href="login.php">Login here</a></div>
             <div class="form-check text-start my-3">
-                <input name="remember" class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
+                <input name="terms" class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                    Remember me
+                    Accept terms and condition
                 </label>
             </div>
-            <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+            <button class="btn btn-primary w-100 py-2" type="submit">Create</button>
             <p class="mt-5 mb-3 text-body-secondary" style="
     margin-left: 90px;">&copy;
                 <?php echo date("Y"); ?>
