@@ -1,6 +1,33 @@
 <?php
 
 if (!empty($_POST)) {
+
+    //validate
+    $errors = [];
+    $query = "select * from users where email = :email limit 1";
+
+    $row = query($query, ['email' => $_POST['email']]);
+
+    if (!empty($row)) {
+
+
+        $data = [];
+        if (password_verify($_POST['password'], $row[0]['password'])) {
+            //grant access
+            authenticate($row[0]);
+            redirect('admin');
+
+        } else {
+            $errors['email'] = "wrong email or password";
+
+        }
+
+
+
+    } else {
+        $errors['email'] = "wrong email or password";
+
+    }
 }
 
 ?>
@@ -189,15 +216,28 @@ if (!empty($_POST)) {
             <h1 class="h3 mb-3 fw-normal" style="margin-left: 55px">Please sign in</h1>
 
             <div class="form-floating">
-                <input name="email" type="email" class="form-control mb-2" id="floatingInput"
-                    placeholder="name@example.com">
+                <input value="<?= old_value('email') ?>" name="email" type="email" class="form-control mb-2"
+                    id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
             </div>
+
+            <?php if (!empty($errors['email'])): ?>
+                <div class="alert alert-danger ">
+                    <?= $errors['email'] ?>
+                </div>
+            <?php endif; ?>
+
             <div class="form-floating">
-                <input name="password" type="password" class="form-control mb-2" id="floatingPassword"
-                    placeholder="Password">
+                <input value="<?= old_value('password') ?>" name="password" type="password" class="form-control mb-2"
+                    id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
+
+            <?php if (!empty($errors['password'])): ?>
+                <div class="alert alert-danger ">
+                    <?= $errors['password'] ?>
+                </div>
+            <?php endif; ?>
 
             <div class="my-2">Don't have an account? <a href="<?php echo ROOT; ?>/signup">Signup here</a></div>
 

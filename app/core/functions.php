@@ -2,9 +2,8 @@
 
 function query(string $query, array $data = [])
 {
-    $string = "mysql:host=" . DBHOST . ";dbname=" . DBNAME;
+    $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
     $con = new PDO($string, DBUSER, DBPASS);
-    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stm = $con->prepare($query);
     $stm->execute($data);
@@ -41,6 +40,34 @@ function old_checked($key)
 
 }
 
+
+function authenticate($row)
+{
+    $_SESSION['USER'] = $row;
+
+}
+function logged_in()
+{
+    if (!empty($_SESSION['USER']))
+        return true;
+
+    return false;
+
+}
+
+
+function str_to_url($url)
+{
+
+    $url = str_replace("'", "", $url);
+    $url = preg_replace('~[^\\pL0-9_]+~u', '-', $url);
+    $url = trim($url, "-");
+    $url = iconv("utf-8", "us-ascii//TRANSLIT", $url);
+    $url = strtolower($url);
+    $url = preg_replace('~[^-a-z0-9_]+~', '', $url);
+
+    return $url;
+}
 
 
 // create_tables();

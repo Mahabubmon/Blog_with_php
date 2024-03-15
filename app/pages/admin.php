@@ -15,8 +15,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="<?= ROOT ?>/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= ROOT ?>/assets/css/bootstrap-icons.css" rel="stylesheet">
 
 
     <style>
@@ -102,7 +102,7 @@
     <!-- Custom styles for this template -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="assets/css/dashboard.css" rel="stylesheet">
+    <link href="<?= ROOT ?>/assets/css/dashboard.css" rel="stylesheet">
 </head>
 
 <body>
@@ -240,32 +240,19 @@
         </symbol>
     </svg>
 
-    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Company name</a>
-
-        <ul class="navbar-nav flex-row d-md-none">
-            <li class="nav-item text-nowrap">
-                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false"
-                    aria-label="Toggle search">
-                    <svg class="bi">
-                        <use xlink:href="#search" />
-                    </svg>
-                </button>
-            </li>
-            <li class="nav-item text-nowrap">
-                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <svg class="bi">
-                        <use xlink:href="#list" />
-                    </svg>
-                </button>
-            </li>
-        </ul>
-
-        <div id="navbarSearch" class="navbar-search w-100 collapse">
-            <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Company name</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search"
+            aria-label="Search">
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="<?= ROOT ?>/logout">Sign out</a>
+            </div>
         </div>
     </header>
 
@@ -282,9 +269,31 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
+                                    href="<?= ROOT ?>/admin">
                                     <i class="bi bi-speedometer"></i>
                                     Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
+                                    href="<?= ROOT ?>/admin/users">
+                                    <i class="bi-people-fill"></i>
+                                    Users
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
+                                    href="<?= ROOT ?>/admin/categories">
+                                    <i class="bi bi-tags-fill"></i>
+                                    Categories
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
+                                    href="<?= ROOT ?>/admin/posts">
+                                    <i class="bi bi-file-post"></i>
+                                    Posts
                                 </a>
                             </li>
                         </ul>
@@ -300,7 +309,7 @@
                         </h6>
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="<?= ROOT ?>">
                                     <i class="bi bi-globe"></i>
 
                                     Frontend
@@ -332,12 +341,25 @@
                         </button>
                     </div>
                 </div>
-                content area
+                <?php
+
+                $section = $url[1] ?? 'dashboard';
+
+                $filename = "..app/pages/admin/" . $section . ".php";
+                if (file_exists($filename)) {
+                    require_once $filename;
+                } else {
+                    // require_once "..app/pages/admin/404.php";
+                }
+                ?>
+
+
+
             </main>
         </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/dashboard.js"></script>
+    <script src="<?= ROOT ?>/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= ROOT ?>/assets/js/dashboard.js"></script>
 </body>
 
 </html>

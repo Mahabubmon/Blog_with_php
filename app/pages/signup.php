@@ -31,7 +31,10 @@ if (!empty($_POST)) {
 
 
     if (empty($errors)) {
+
+
         //save to databasee
+
         $data = [];
         $data['username'] = $_POST['username'];
         $data['email'] = $_POST['email'];
@@ -39,7 +42,9 @@ if (!empty($_POST)) {
         $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 
-        $query = "insert into users(username,email,password,role) values(:username,:email,:password,role:)";
+        // $query = "insert into users(username,email,password,role) values(:username,:email,:password,role:)";
+        $query = "insert into users(username,email,password,role) values(:username,:email,:password,:role)";
+
         query($query, $data);
 
         redirect('login');
