@@ -349,7 +349,7 @@
                 if (file_exists($filename)) {
                     require_once $filename;
                 } else {
-                    // require_once "..app/pages/admin/404.php";
+                    require_once '../app/pages/admin/404.php';
                 }
                 ?>
 
