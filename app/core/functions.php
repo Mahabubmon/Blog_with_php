@@ -9,8 +9,22 @@ function query(string $query, array $data = [])
     $stm->execute($data);
 
     $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-    if (is_array($result) && !empty($result)) {
+    if (is_array($result) && !empty ($result)) {
         return $result;
+    }
+    return false;
+}
+function query_row(string $query, array $data = [])
+{
+    $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
+    $con = new PDO($string, DBUSER, DBPASS);
+
+    $stm = $con->prepare($query);
+    $stm->execute($data);
+
+    $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+    if (is_array($result) && !empty ($result)) {
+        return $result[0];
     }
     return false;
 }
@@ -18,25 +32,35 @@ function query(string $query, array $data = [])
 
 function redirect($page)
 {
-    header('Location: ' . $page);
+    header('Location: ' . ROOT . '/' . $page);
     die;
 
 }
 
-function old_value($key)
+function old_value($key, $default = '')
 {
-    if (!empty($_POST[$key]))
+    if (!empty ($_POST[$key]))
         return $_POST[$key];
+
+    return $default;
+
+}
+function old_checked($key, $default = '')
+{
+    if (!empty ($_POST[$key]))
+        return "checked";
 
     return "";
 
 }
-function old_checked($key)
-{
-    if (!empty($_POST[$key]))
-        return "checked";
 
-    return "";
+function get_image($file)
+{
+    $file = $file ?? '';
+    if (file_exists($file)) {
+        return ROOT . '/' . $file;
+    }
+    return ROOT . '/assets/images/download (3).jpeg' . $file;
 
 }
 
@@ -48,7 +72,7 @@ function authenticate($row)
 }
 function logged_in()
 {
-    if (!empty($_SESSION['USER']))
+    if (!empty ($_SESSION['USER']))
         return true;
 
     return false;
@@ -67,6 +91,11 @@ function str_to_url($url)
     $url = preg_replace('~[^-a-z0-9_]+~', '', $url);
 
     return $url;
+}
+
+function esc($str)
+{
+    return htmlspecialchars($str ?? '');
 }
 
 
