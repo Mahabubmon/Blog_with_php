@@ -91,6 +91,7 @@ if ($action == 'add') {
                 if (!in_array($_FILES['image']['type'], $allowed)) {
                     $errors['image'] = "Image formate not supported";
                 } else {
+                    $destination = $folder . time() . $_FILES['image']['name'];
                     move_uploaded_file($_FILES['image']['tmp_name'], $destination);
                 }
 
