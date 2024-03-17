@@ -56,12 +56,11 @@ if ($action == 'add') {
             $data = [];
             $data['username'] = $_POST['username'];
             $data['email'] = $_POST['email'];
-            $data['image'] = $_POST['image'];
-            $data['role'] = "user";
+            $data['role'] = $_POST['role'];
             $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 
-            $query = "insert into users(username,email,password,role,image) values(:username,:email,:password,:role,:image)";
+            $query = "insert into users(username,email,password,role) values(:username,:email,:password,:role)";
 
             query($query, $data);
 
