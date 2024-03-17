@@ -9,6 +9,26 @@
             <?php endif; ?>
 
 
+            <div class="my-2">
+                <label class="d-block">
+                    <img class="mx-auto d-block image-preview-edit" src="<?= get_image('') ?>"
+                        style="cursor: pointer;width: 150px;height: 150px;object-fit: cover;">
+                    <input onchange="display_image_edit(this.files[0])" type="file" name="image" class="d-none">
+                </label>
+                <?php if (!empty ($errors['image'])): ?>
+                    <div class="text-danger">
+                        <?= $errors['image'] ?>
+                    </div>
+                <?php endif; ?>
+
+                <script>
+
+                    function display_image_edit(file) {
+                        document.querySelector(".image-preview-edit").src = URL.createObjectURL(file);
+                    }
+                </script>
+            </div>
+
 
             <div class="form-floating">
                 <input value="<?= old_value('username') ?>" name="username" type="text" class="form-control mb-2"
@@ -35,7 +55,22 @@
                 <?php endif; ?>
             </div>
             <div class="form-floating">
-                <input value="<?= old_value('password') ?>" name="password" type="password" class="form-control mb-2"
+                <select name="role" id="role" class="form-select">
+                    <option>Select a Value</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <label for="floatingInput">Role </label>
+            </div>
+            <div>
+                <?php if (!empty ($errors['role'])): ?>
+                    <div class="text-danger ">
+                        <?= $errors['role'] ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="form-floating">
+                <input value="<?= old_value('password') ?>" name="password" type="password" class="form-control mb-2 mt-2"
                     id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>

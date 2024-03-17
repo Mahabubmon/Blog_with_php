@@ -33,10 +33,12 @@ $current_link .= "page=" . $page_number;
 
 
 $next_link = preg_replace("/page=[0-9]+/", "page=" . ($page_number + 1), $current_link);
+$current_link = preg_replace("/page=[0-9]+/", "page=" . $page_number, $current_link);
+$first_link = preg_replace("/page=[0-9]+/", "page=1", $current_link);
 
 $prev_page_number = $page_number < 2 ? 1 : $page_number - 1;
 $prev_link = preg_replace("/page=[0-9]+/", "page=" . $prev_page_number, $current_link);
-echo $prev_link;
+
 
 if (file_exists($filename)) {
     require_once $filename;
