@@ -8,92 +8,30 @@
                 <div class="alert alert-danger ">Please fix the errors below</div>
             <?php endif; ?>
 
-
-            <div class="my-2">
-                <label class="d-block">
-                    <img class="mx-auto d-block image-preview-edit" src="<?= get_image('') ?>"
-                        style="cursor: pointer;width: 150px;height: 150px;object-fit: cover;">
-                    <input onchange="display_image_edit(this.files[0])" type="file" name="image" class="d-none">
-                </label>
-                <?php if (!empty ($errors['image'])): ?>
-                    <div class="text-danger">
-                        <?= $errors['image'] ?>
-                    </div>
-                <?php endif; ?>
-
-                <script>
-
-                    function display_image_edit(file) {
-                        document.querySelector(".image-preview-edit").src = URL.createObjectURL(file);
-                    }
-                </script>
-            </div>
-
-
             <div class="form-floating">
-                <input value="<?= old_value('username') ?>" name="username" type="text" class="form-control mb-2"
-                    id="floatingInput" placeholder="User Name...">
-                <label for="floatingInput">User Name</label>
+                <input value="<?= old_value('category') ?>" name="category" type="text" class="form-control mb-2"
+                    id="floatingInput" placeholder="Category Name...">
+                <label for="floatingInput">Category Name</label>
             </div>
             <div>
-                <?php if (!empty ($errors['username'])): ?>
+                <?php if (!empty ($errors['category'])): ?>
                     <div class="text-danger ">
-                        <?= $errors['username'] ?>
+                        <?= $errors['category'] ?>
                     </div>
                 <?php endif; ?>
             </div>
             <div class="form-floating">
-                <input value="<?= old_value('email') ?>" name="email" type="email" class="form-control mb-2"
-                    id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-            </div>
-            <div>
-                <?php if (!empty ($errors['email'])): ?>
-                    <div class="text-danger ">
-                        <?= $errors['email'] ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <div class="form-floating">
-                <select name="role" id="role" class="form-select">
+                <select name="disabled" id="disabled" class="form-select">
                     <option>Select a Value</option>
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
+                    <option value="0">Yes</option>
+                    <option value="1">No</option>
                 </select>
-                <label for="floatingInput">Role </label>
+                <label for="floatingInput">Active </label>
             </div>
-            <div>
-                <?php if (!empty ($errors['role'])): ?>
-                    <div class="text-danger ">
-                        <?= $errors['role'] ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <div class="form-floating">
-                <input value="<?= old_value('password') ?>" name="password" type="password" class="form-control mb-2 mt-2"
-                    id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
-            <div>
-                <?php if (!empty ($errors['password'])): ?>
-                    <div class="text-danger ">
-                        <?= $errors['password'] ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <div class="form-floating">
-                <input value="<?= old_value('retype_password') ?>" name="retype_password" type="password"
-                    class="form-control mb-2" id="floatingPassword" placeholder="Retype Password">
-                <label for="floatingPassword">Re-Password</label>
-            </div>
-            <div>
-                <?php if (!empty ($errors['terms'])): ?>
-                    <div class="text-danger ">
-                        <?= $errors['terms'] ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <a href="<?= ROOT ?>/admin/users/">
+
+
+
+            <a href="<?= ROOT ?>/admin/categories/">
                 <button class="btn btn-primary  py-2 mt-4" type="button">Back</button>
             </a>
             <button class="btn btn-primary  py-2 mt-4 float-end" type="submit">Create</button>
@@ -110,30 +48,16 @@
                     <div class="alert alert-danger ">Please fix the errors below</div>
                 <?php endif; ?>
 
-                <div class="my-2">
-                    <label class="d-block">
-                        <img class="mx-auto d-block display_image_edit" src="<?= get_image($row['image']) ?>"
-                            style="cursor: pointer; width: 150px; height: 150px; object-fit: cover;" alt="">
-                        <input onchange="display_image_edit(this.files[0])" type="file" name="image" class="d-none">
-                    </label>
-                </div>
-
-                <script>
-                    function display_image_edit(file) {
-                        document.querySelector(".display_image_edit").src = URL.createObjectURL(file);
-
-                    }
-                </script>
 
                 <div class="form-floating">
-                    <input value="<?= old_value('username', $row['username']) ?>" name="username" type="text"
+                    <input value="<?= old_value('category', $row['category']) ?>" name="category" type="text"
                         class="form-control mb-2" id="floatingInput" placeholder="User Name...">
                     <label for="floatingInput">User Name</label>
                 </div>
                 <div>
-                    <?php if (!empty ($errors['username'])): ?>
+                    <?php if (!empty ($errors['category'])): ?>
                         <div class="text-danger ">
-                            <?= $errors['username'] ?>
+                            <?= $errors['category'] ?>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -189,7 +113,7 @@
                         </div>
                     <?php endif; ?>
                 </div>
-                <a href="<?= ROOT ?>/admin/users/">
+                <a href="<?= ROOT ?>/admin/categories/">
                     <button class="btn btn-primary py-2 mt-4" type="button">Back</button>
                 </a>
                 <button class="btn btn-primary py-2 mt-4 float-end" type="submit">Save</button>
@@ -211,22 +135,22 @@
 
                 <div class="form-floating">
                     <div class="form-control mb-2" id="floatingInput">
-                        <?= old_value('username', $row['username']) ?>
+                        <?= old_value('category', $row['category']) ?>
                     </div>
                     <div>
                     </div>
                     <div class="form-floating">
                         <div class="form-control mb-2" id="floatingInput">
-                            <?= old_value('email', $row['email']) ?>
+                            <?= old_value('slug', $row['slug']) ?>
                         </div>
                     </div>
                     <div>
                     </div>
 
-                    <a href="<?= ROOT ?>/admin/users/">
+                    <a href="<?= ROOT ?>/admin/categories/">
                         <button class="btn btn-primary py-2 mt-4" type="button">Back</button>
                     </a>
-                    <a href="<?= ROOT ?>/admin/users/">
+                    <a href="<?= ROOT ?>/admin/categories/">
                         <button class="btn btn-danger py-2 mt-4 float-end" type="submit">Delete</button>
                     </a>
 
@@ -237,24 +161,22 @@
     '<h1>Record not Found</h1>' ?>
 
     <h4>Categories
-        <a href="<?= ROOT ?>/admin/users/add">
+        <a href="<?= ROOT ?>/admin/categories/add">
             <button class="btn btn-primary">Add New</button>
         </a>
     </h4>
 
 
-    <div class="table-reponsive">
+    <div class="table-responsive">
         <table class="table">
+
             <tr>
                 <th>#</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Image</th>
-                <th>Date</th>
+                <th>Category</th>
+                <th>Slug</th>
+                <th>Disabled</th>
                 <th>Action</th>
             </tr>
-
             <?php
             $limit = 10;
             $offset = ($PAGE['page_number'] - 1) * $limit;
@@ -263,38 +185,29 @@
             $rows = query($query);
             ?>
 
-            <?php if (!empty ($row)): ?>
-                <?php foreach ($row as $row): ?>
+            <?php if (!empty ($rows)): ?>
+                <?php foreach ($rows as $row): ?>
                     <tr>
                         <td>
                             <?= $row['id'] ?>
                         </td>
                         <td>
-                            <?= esc($row['username']) ?>
+                            <?= esc($row['category']) ?>
                         </td>
                         <td>
-                            <?= $row['email'] ?>
+                            <?= $row['slug'] ?>
                         </td>
                         <td>
-                            <?= $row['role'] ?>
+                            <?= $row['disabled'] ?>
                         </td>
                         <td>
-                            <img src="<?= get_image($row['image']) ?>" style="width: 100px; height: 100px; object-fit: cover;"
-                                alt="">
-                        </td>
-                        <td>
-                            <?= date("jS M, Y", strtotime($row['date'])) ?>
-                        </td>
-                        <td>
-                            <a href="<?= ROOT ?>/admin/users/edit/<?= $row['id'] ?>">
-
-                                <button class="btn btn-danger btn-sm"><i class="i bi-pencil-square"></i></button>
+                            <a href="<?= ROOT ?>/admin/categories/edit/<?= $row['id'] ?>">
+                                <button class="btn btn-warning text-white btn-sm"><i class="bi bi-pencil-square"></i></button>
                             </a>
-                            <a href="<?= ROOT ?>/admin/users/delete/<?= $row['id'] ?>">
-                                <button class="btn btn-warning text-white btn-sm"><i class="i bi-trash-fill"></i></button>
+                            <a href="<?= ROOT ?>/admin/categories/delete/<?= $row['id'] ?>">
+                                <button class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></button>
                             </a>
                         </td>
-
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
