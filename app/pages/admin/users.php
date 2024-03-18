@@ -149,6 +149,22 @@
                         </div>
                     <?php endif; ?>
                 </div>
+
+                <div class="form-floating">
+                    <select name="role" id="role" class="form-select">
+                        <option <?= old_select('role', 'user', $row['role']) ?> value="user">User</option>
+                        <option <?= old_select('role', 'admin', $row['role']) ?> value="admin">Admin</option>
+                    </select>
+                    <label for="floatingInput">Role </label>
+                </div>
+                <div>
+                    <?php if (!empty ($errors['role'])): ?>
+                        <div class="text-danger ">
+                            <?= $errors['role'] ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
                 <div class="form-floating">
                     <input value="<?= old_value('password') ?>" name="password" type="password" class="form-control mb-2"
                         id="floatingPassword" placeholder="Password">
