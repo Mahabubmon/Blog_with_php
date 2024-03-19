@@ -51,8 +51,8 @@
 
                 <div class="form-floating">
                     <input value="<?= old_value('category', $row['category']) ?>" name="category" type="text"
-                        class="form-control mb-2" id="floatingInput" placeholder="User Name...">
-                    <label for="floatingInput">User Name</label>
+                        class="form-control mb-2" id="floatingInput" placeholder="Category...">
+                    <label for="floatingInput">Category</label>
                 </div>
                 <div>
                     <?php if (!empty ($errors['category'])): ?>
@@ -62,56 +62,11 @@
                     <?php endif; ?>
                 </div>
                 <div class="form-floating">
-                    <input value="<?= old_value('email', $row['email']) ?>" name="email" type="email" class="form-control mb-2"
-                        id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                </div>
-                <div>
-                    <?php if (!empty ($errors['email'])): ?>
-                        <div class="text-danger ">
-                            <?= $errors['email'] ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-
-                <div class="form-floating">
-                    <select name="role" id="role" class="form-select">
-                        <option <?= old_select('role', 'user', $row['role']) ?> value="user">User</option>
-                        <option <?= old_select('role', 'admin', $row['role']) ?> value="admin">Admin</option>
+                    <select name="disabled" id="disabled" class="form-select">
+                        <option <?= old_select('disabled', '0', $row['disabled']) ?> value="0">Yes</option>
+                        <option <?= old_select('disabled', '1', $row['disabled']) ?> value="1">No</option>
                     </select>
-                    <label for="floatingInput">Role </label>
-                </div>
-                <div>
-                    <?php if (!empty ($errors['role'])): ?>
-                        <div class="text-danger ">
-                            <?= $errors['role'] ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-
-                <div class="form-floating">
-                    <input value="<?= old_value('password') ?>" name="password" type="password" class="form-control mb-2"
-                        id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password(Leave empty to keep old one)</label>
-                </div>
-                <div>
-                    <?php if (!empty ($errors['password'])): ?>
-                        <div class="text-danger ">
-                            <?= $errors['password'] ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-                <div class="form-floating">
-                    <input value="<?= old_value('retype_password') ?>" name="retype_password" type="password"
-                        class="form-control mb-2" id="floatingPassword" placeholder="Retype Password">
-                    <label for="floatingPassword">Re-Password</label>
-                </div>
-                <div>
-                    <?php if (!empty ($errors['terms'])): ?>
-                        <div class="text-danger ">
-                            <?= $errors['terms'] ?>
-                        </div>
-                    <?php endif; ?>
+                    <label for="floatingInput">Active </label>
                 </div>
                 <a href="<?= ROOT ?>/admin/categories/">
                     <button class="btn btn-primary py-2 mt-4" type="button">Back</button>
