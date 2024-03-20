@@ -11,7 +11,7 @@
 
             <div class="my-2">
 
-                Featureed Image <br>
+                Featureed Image: <br>
                 <label class="d-block">
                     <img class="mx-auto d-block image-preview-edit" src="<?= get_image('') ?>"
                         style="cursor: pointer;width: 150px;height: 150px;object-fit: cover;">
@@ -35,7 +35,7 @@
             <div class="form-floating">
                 <input value="<?= old_value('tilte') ?>" name="tilte" type="text" class="form-control mb-2"
                     id="floatingInput" placeholder="tilte">
-                <label for="floatingInput">tilte</label>
+                <label for="floatingInput">Tilte</label>
             </div>
             <?php if (!empty ($errors['tilte'])): ?>
                 <div class="text-danger">
@@ -43,8 +43,8 @@
                 </div>
             <?php endif; ?>
 
-            <div class="form-floating">
-                <textarea placeholder="Post Content" name="content" type="content" class="form-control"
+            <div class="">
+                <textarea row="8" placeholder="Post Content" name="content" type="content" class="form-control"
                     id="floatingInput"><?= old_value('content') ?></textarea>
                 <label for="floatingInput">Posts Content </label>
             </div>
@@ -56,7 +56,20 @@
 
             <div class="form-floating my-3">
                 <select name="category" class="form-select">
-                    <option value="user">User</option>
+
+                    <?php
+
+                    $query = "select * from categories order by id desc";
+                    $categories = query($query);
+                    ?>
+                    <option value="">--Select--</option>
+                    <?php if (!empty ($categories)): ?>
+                        <?php foreach ($categories as $cat): ?>
+                            <option value="<?= $cat['id'] ?>">
+                                <?= $cat['category'] ?>
+                            </option>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </select>
                 <label for="floatingInput">Category</label>
             </div>
