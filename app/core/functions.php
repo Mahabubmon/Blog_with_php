@@ -82,6 +82,17 @@ function authenticate($row)
     $_SESSION['USER'] = $row;
 
 }
+function user($key = '')
+{
+    if (empty ($key))
+        return $_SESSION['USER'];
+
+    if (!empty ($_SESSION['USER'][$key]))
+        return $_SESSION['USER'][$key];
+
+    return '';
+
+}
 function logged_in()
 {
     if (!empty ($_SESSION['USER']))
@@ -92,10 +103,25 @@ function logged_in()
 }
 
 
+// function str_to_url($url)
+// {
+
+//     $url = str_replace("'", "", $url);
+//     $url = preg_replace('~[^\\pL0-9_]+~u', '-', $url);
+//     $url = trim($url, "-");
+//     $url = iconv("utf-8", "us-ascii//TRANSLIT", $url);
+//     $url = strtolower($url);
+//     $url = preg_replace('~[^-a-z0-9_]+~', '', $url);
+
+//     return $url;
+// }
+
+
 function str_to_url($url)
 {
-
-    $url = str_replace("'", "", $url);
+    if ($url !== null) {
+        $url = str_replace("'", "", $url);
+    }
     $url = preg_replace('~[^\\pL0-9_]+~u', '-', $url);
     $url = trim($url, "-");
     $url = iconv("utf-8", "us-ascii//TRANSLIT", $url);
@@ -104,6 +130,7 @@ function str_to_url($url)
 
     return $url;
 }
+
 
 function esc($str)
 {
