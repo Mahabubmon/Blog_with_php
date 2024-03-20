@@ -9,8 +9,8 @@ if ($action == 'add') {
             $errors['title'] = "A title is required";
         }
 
-        if (empty ($_POST['category'])) {
-            $errors['category'] = "A category is required";
+        if (empty ($_POST['category_id'])) {
+            $errors['category_id'] = "A category is required";
         }
 
         //validate image
@@ -33,6 +33,16 @@ if ($action == 'add') {
         } else {
             $errors['image'] = "A feature  Image  is required";
 
+        }
+
+
+        $slug = str_to_url($_POST['title']);
+
+        $query = "select id from posts where slug = :slug limit 1";
+        $slug_row = query($query, ['slug' => $slug]);
+
+        if ($slug_row) {
+            $slug .= rand(1000, 9999);
         }
 
         if (empty ($errors)) {

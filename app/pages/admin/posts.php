@@ -33,13 +33,13 @@
 
 
             <div class="form-floating">
-                <input value="<?= old_value('tilte') ?>" name="tilte" type="text" class="form-control mb-2"
-                    id="floatingInput" placeholder="tilte">
+                <input value="<?= old_value('title') ?>" name="title" type="text" class="form-control mb-2"
+                    id="floatingInput" placeholder="title">
                 <label for="floatingInput">Tilte</label>
             </div>
-            <?php if (!empty ($errors['tilte'])): ?>
+            <?php if (!empty ($errors['title'])): ?>
                 <div class="text-danger">
-                    <?= $errors['tilte'] ?>
+                    <?= $errors['title'] ?>
                 </div>
             <?php endif; ?>
 
@@ -55,7 +55,7 @@
             <?php endif; ?>
 
             <div class="form-floating my-3">
-                <select name="category" class="form-select">
+                <select name="category_id" class="form-select">
 
                     <?php
 
@@ -65,7 +65,7 @@
                     <option value="">--Select--</option>
                     <?php if (!empty ($categories)): ?>
                         <?php foreach ($categories as $cat): ?>
-                            <option value="<?= $cat['id'] ?>">
+                            <option <?= old_select('category_id', $cat['id']) ?> value="<?= $cat['id'] ?>">
                                 <?= $cat['category'] ?>
                             </option>
                         <?php endforeach; ?>
