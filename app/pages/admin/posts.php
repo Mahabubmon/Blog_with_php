@@ -121,39 +121,52 @@
                 </div>
 
                 <div class="form-floating">
-                    <input value="<?= old_value('username', $row['username']) ?>" name="username" type="text"
-                        class="form-control mb-2" id="floatingInput" placeholder="Username">
-                    <label for="floatingInput">Username</label>
+                    <input value="<?= old_value('title', $row['title']) ?>" name="title" type="text" class="form-control mb-2"
+                        id="floatingInput" placeholder="title">
+                    <label for="floatingInput">title</label>
                 </div>
-                <?php if (!empty ($errors['username'])): ?>
+                <?php if (!empty ($errors['title'])): ?>
                     <div class="text-danger">
-                        <?= $errors['username'] ?>
+                        <?= $errors['title'] ?>
                     </div>
                 <?php endif; ?>
 
-                <div class="form-floating">
-                    <input value="<?= old_value('email', $row['email']) ?>" name="email" type="email" class="form-control"
-                        id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
+                <div class="">
+                    <textarea row="8" placeholder="Post Content" name="content" type="content" class="form-control"
+                        id="floatingInput"><?= old_value('content', $row['content']) ?></textarea>
+                    <label for="floatingInput">Posts Content </label>
                 </div>
-                <?php if (!empty ($errors['email'])): ?>
+                <?php if (!empty ($errors['content'])): ?>
                     <div class="text-danger">
-                        <?= $errors['email'] ?>
+                        <?= $errors['content'] ?>
                     </div>
                 <?php endif; ?>
 
                 <div class="form-floating my-3">
-                    <select name="role" class="form-select">
-                        <option <?= old_select('role', 'user', $row['role']) ?> value="user">User</option>
-                        <option <?= old_select('role', 'admin', $row['role']) ?> value="admin">Admin</option>
+                    <select name="category_id" class="form-select">
+
+                        <?php
+
+                        $query = "select * from categories order by id desc";
+                        $categories = query($query);
+                        ?>
+                        <option value="">--Select--</option>
+                        <?php if (!empty ($categories)): ?>
+                            <?php foreach ($categories as $cat): ?>
+                                <option <?= old_select('category_id', $cat['id'], $row['category_id']) ?> value="<?= $cat['id'] ?>">
+                                    <?= $cat['category'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </select>
-                    <label for="floatingInput">Role</label>
+                    <label for="floatingInput">Category</label>
                 </div>
-                <?php if (!empty ($errors['role'])): ?>
+                <?php if (!empty ($errors['category'])): ?>
                     <div class="text-danger">
-                        <?= $errors['role'] ?>
+                        <?= $errors['category'] ?>
                     </div>
                 <?php endif; ?>
+
 
                 <div class="form-floating">
                     <input value="<?= old_value('password') ?>" name="password" type="password" class="form-control"
@@ -199,23 +212,23 @@
 
                 <div class="form-floating">
                     <div class="form-control mb-2">
-                        <?= old_value('username', $row['username']) ?>
+                        <?= old_value('title', $row['title']) ?>
                     </div>
                 </div>
-                <?php if (!empty ($errors['username'])): ?>
+                <?php if (!empty ($errors['title'])): ?>
                     <div class="text-danger">
-                        <?= $errors['username'] ?>
+                        <?= $errors['title'] ?>
                     </div>
                 <?php endif; ?>
 
                 <div class="form-floating">
                     <div class="form-control mb-2">
-                        <?= old_value('email', $row['email']) ?>
+                        <?= old_value('slug', $row['slug']) ?>
                     </div>
                 </div>
-                <?php if (!empty ($errors['email'])): ?>
+                <?php if (!empty ($errors['slug'])): ?>
                     <div class="text-danger">
-                        <?= $errors['email'] ?>
+                        <?= $errors['slug'] ?>
                     </div>
                 <?php endif; ?>
 

@@ -179,13 +179,17 @@ if ($action == 'add') {
 
                         //delete to databasee
 
-
+                        $data = [];
                         $data['id'] = $id;
 
 
 
                         $query = "delete from posts where id = :id limit 1";
 
+
+
+                        if (file_exists($row['image']))
+                            unlink($row['image']);
 
 
 
