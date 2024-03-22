@@ -301,29 +301,29 @@ if ($section == 'users') {
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
-                                    href="<?= ROOT ?>/admin">
+                                <a class="nav-link <?= $section == 'dashboard' ? 'active' : '' ?> d-flex align-items-center gap-2 "
+                                    aria-current="page" href="<?= ROOT ?>/admin">
                                     <i class="bi bi-speedometer"></i>
                                     Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
-                                    href="<?= ROOT ?>/admin/users">
+                                <a class="nav-link <?= $section == 'users' ? 'active' : '' ?> d-flex align-items-center gap-2"
+                                    aria-current="page" href="<?= ROOT ?>/admin/users">
                                     <i class="bi-people-fill"></i>
                                     Users
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
-                                    href="<?= ROOT ?>/admin/categories">
+                                <a class="nav-link <?= $section == 'categories' ? 'active' : '' ?> d-flex align-items-center gap-2"
+                                    aria-current="page" href="<?= ROOT ?>/admin/categories">
                                     <i class="bi bi-tags-fill"></i>
                                     Categories
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
-                                    href="<?= ROOT ?>/admin/posts">
+                                <a class="nav-link <?= $section == 'posts' ? 'active' : '' ?> d-flex align-items-center gap-2 "
+                                    aria-current="page" href="<?= ROOT ?>/admin/posts">
                                     <i class="bi bi-file-post"></i>
                                     Posts
                                 </a>
