@@ -80,35 +80,13 @@ if ($action == 'add') {
                 //validate
                 $errors = [];
 
-                if (empty ($_POST['username'])) {
-                    $errors['username'] = "A username is required";
-                } else
-                    if (!preg_match("/^[a-zA-Z]+$/", $_POST['username'])) {
-                        $errors['username'] = "Username can only have letters and no spaces";
-                    }
+                if (empty ($_POST['title'])) {
+                    $errors['title'] = "A title is required";
+                }
 
-                $query = "select id from posts where email = :email && id != :id limit 1";
-                $email = query($query, ['email' => $_POST['email'], 'id' => $id]);
-
-                if (empty ($_POST['email'])) {
-                    $errors['email'] = "A email is required";
-                } else
-                    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                        $errors['email'] = "Email not valid";
-                    } else
-                        if ($email) {
-                            $errors['email'] = "That email is already in use";
-                        }
-
-                if (empty ($_POST['password'])) {
-
-                } else
-                    if (strlen($_POST['password']) < 8) {
-                        $errors['password'] = "Password must be 8 character or more";
-                    } else
-                        if ($_POST['password'] !== $_POST['retype_password']) {
-                            $errors['password'] = "Passwords do not match";
-                        }
+                if (empty ($_POST['category_id'])) {
+                    $errors['category_id'] = "A category is required";
+                }
 
                 //validate image
                 $allowed = ['image/jpeg', 'image/png', 'image/webp'];
@@ -127,8 +105,10 @@ if ($action == 'add') {
                         resize_image($destination);
                     }
 
-
                 }
+
+
+
 
                 if (empty ($errors)) {
                     //save to database
@@ -138,13 +118,8 @@ if ($action == 'add') {
                     $data['role'] = $_POST['role'];
                     $data['id'] = $id;
 
-                    $password_str = "";
                     $image_str = "";
 
-                    if (!empty ($_POST['password'])) {
-                        $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                        $password_str = "password = :password, ";
-                    }
 
                     if (!empty ($destination)) {
                         $image_str = "image = :image, ";
@@ -179,13 +154,17 @@ if ($action == 'add') {
 
                         //delete to databasee
 
-
+                        $data = [];
                         $data['id'] = $id;
 
 
 
                         $query = "delete from posts where id = :id limit 1";
 
+
+
+                        if (file_exists($row['image']))
+                            unlink($row['image']);
 
 
 
