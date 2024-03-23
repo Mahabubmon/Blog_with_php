@@ -49,9 +49,9 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 link-body-emphasis">Blog</a></li>
-                    <li><a href="#" class="nav-link px-2 link-body-emphasis">Contact</a></li>
+                    <li><a href="<?= ROOT ?>" class="nav-link px-2 link-secondary">Home</a></li>
+                    <li><a href="<?= ROOT ?>/blog" class="nav-link px-2 link-body-emphasis">Blog</a></li>
+                    <li><a href="<?= ROOT ?>/contact" class="nav-link px-2 link-body-emphasis">Contact</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -79,29 +79,14 @@
 
 
     <!-- slider -->
-    <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/slider/ism/css/my-slider.css" />
-    <script src="<?php echo ROOT; ?>/assets/slider/ism/js/ism-2.2.min.js"></script>
 
-    <div class="ism-slider" data-transition_type="fade" data-play_type="loop" id="my-slider">
-        <ol>
-            <li>
-                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/pond-side-viwe.jpg">
-                <div class="ism-caption ism-caption-0">My slide caption text</div>
-            </li>
-            <li>
-                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/cox-viwe.jpg">
-                <div class="ism-caption ism-caption-0">My slide caption text</div>
-            </li>
-            <li>
-                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/syhlet-viwe.jpg">
-                <div class="ism-caption ism-caption-0">My slide caption text</div>
-            </li>
-            <li>
-                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/random-viwe.jpg">
-                <div class="ism-caption ism-caption-0">My slide caption text</div>
-            </li>
-        </ol>
-    </div>
+
+    <?php
+    if ($url[0] == 'home') {
+        include '../app/pages/includes/slider.php';
+    }
+    ?>
+
     <!-- slider end-->
 
 

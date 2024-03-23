@@ -1,5 +1,5 @@
 <!-- header section  -->
-<?php include '../app/pages/includes/footer.php';
+<?php include '../app/pages/includes/header.php';
 ?>
 <h3 class="mx-4">Features</h3>
 
@@ -29,6 +29,3 @@
 <?php include '../app/pages/includes/footer.php';
 ?>
 <!-- footer section  end -->
-</body>
-
-</html>
