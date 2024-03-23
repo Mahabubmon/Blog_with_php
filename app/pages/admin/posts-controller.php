@@ -113,9 +113,9 @@ if ($action == 'add') {
                 if (empty ($errors)) {
                     //save to database
                     $data = [];
-                    $data['username'] = $_POST['username'];
-                    $data['email'] = $_POST['email'];
-                    $data['role'] = $_POST['role'];
+                    $data['title'] = $_POST['title'];
+                    $data['content'] = $_POST['content'];
+                    $data['category_id'] = $_POST['category_id'];
                     $data['id'] = $id;
 
                     $image_str = "";
@@ -126,7 +126,7 @@ if ($action == 'add') {
                         $data['image'] = $destination;
                     }
 
-                    $query = "update posts set username = :username, email = :email, $password_str $image_str role = :role where id = :id limit 1";
+                    $query = "update posts set title = :title, content = :content, $image_str category_id = :category_id where id = :id limit 1";
 
                     query($query, $data);
                     redirect('admin/posts');

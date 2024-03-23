@@ -168,22 +168,7 @@
                 <?php endif; ?>
 
 
-                <div class="form-floating">
-                    <input value="<?= old_value('password') ?>" name="password" type="password" class="form-control"
-                        id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password (leave empty to keep old one)</label>
-                </div>
-                <?php if (!empty ($errors['password'])): ?>
-                    <div class="text-danger">
-                        <?= $errors['password'] ?>
-                    </div>
-                <?php endif; ?>
 
-                <div class="form-floating">
-                    <input value="<?= old_value('retype_password') ?>" name="retype_password" type="password"
-                        class="form-control" id="floatingPassword" placeholder="Retype Password">
-                    <label for="floatingPassword">Password</label>
-                </div>
 
                 <a href="<?= ROOT ?>/admin/posts">
                     <button class="mt-4 btn btn-lg btn-primary" type="button">Back</button>

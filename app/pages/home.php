@@ -181,19 +181,19 @@
     <div class="ism-slider" data-transition_type="fade" data-play_type="loop" id="my-slider">
         <ol>
             <li>
-                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/beach-hut-237489_1280.jpg">
+                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/pond-side-viwe.jpg">
                 <div class="ism-caption ism-caption-0">My slide caption text</div>
             </li>
             <li>
-                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/biker-384920_1280.jpg">
+                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/cox-viwe.jpg">
                 <div class="ism-caption ism-caption-0">My slide caption text</div>
             </li>
             <li>
-                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/summer-192179_1280.jpg">
+                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/syhlet-viwe.jpg">
                 <div class="ism-caption ism-caption-0">My slide caption text</div>
             </li>
             <li>
-                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/city-690332_1280.jpg">
+                <img src="<?php echo ROOT; ?>/assets/slider/ism/image/slides/random-viwe.jpg">
                 <div class="ism-caption ism-caption-0">My slide caption text</div>
             </li>
         </ol>
@@ -204,57 +204,23 @@
     <main class="p-2">
         <h3 class="mx-4">Features</h3>
 
-        <div class="row mb-2">
+        <div class="row mb-2 justify-content-center">
 
 
-            <div class="col-md-6">
-                <div
-                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
-                        <h3 class="mb-0">Featured post</h3>
-                        <div class="mb-1 text-body-secondary">Nov 12</div>
-                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
-                            lead-in to additional content.</p>
-                        <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-                            Continue reading
-                            <svg class="bi">
-                                <use xlink:href="#chevron-right" />
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="col-lg-5 col-12 d-lg-block">
+            <?php
 
-                        <img src="<?php echo ROOT; ?>/assets/images/download (1).jpeg" alt=""
-                            class="bd-placeholder-img w-100" width="200" height="250">
-                        <title>Placeholder</title>
-                    </div>
-                </div>
-            </div>
+            $query = "select posts.*,categories.category from posts join categories on posts.category_id = categories.id order by id desc limit 6";
+            $rows = query($query);
+            if ($rows) {
+                foreach ($rows as $row) {
 
+                    include '../app/pages/includes/post-card.php';
+                }
+            } else {
+                echo "no items found";
+            }
 
-            <div class="col-md-6">
-                <div
-                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
-                        <h3 class="mb-0">Post title</h3>
-                        <div class="mb-1 text-body-secondary">Nov 11</div>
-                        <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                            additional content.</p>
-                        <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-                            Continue reading
-                            <svg class="bi">
-                                <use xlink:href="#chevron-right" />
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="col-lg-5  col-12 d-lg-block">
-                        <img src="<?php echo ROOT; ?>/assets/images/download (2).jpeg" alt=""
-                            class="bd-placeholder-img w-100" width="200" height="250">
-                    </div>
-                </div>
-            </div>
+            ?>
 
 
         </div>
