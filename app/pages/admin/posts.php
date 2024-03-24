@@ -89,6 +89,8 @@
 
 <?php elseif ($action == 'edit'): ?>
 
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/summernote/summernote-lite.min.css">
+
     <div class="col-md-6 mx-auto">
         <form method="post" enctype="multipart/form-data">
 
@@ -181,6 +183,7 @@
 
         </form>
     </div>
+    <script src="<?= ROOT ?>/assets/summernote/summernote-lite.min.js"> </script>
 
 <?php elseif ($action == 'delete'): ?>
 
