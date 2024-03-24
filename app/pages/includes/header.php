@@ -49,13 +49,21 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="<?= ROOT ?>" class="nav-link px-2 link-secondary">Home</a></li>
-                    <li><a href="<?= ROOT ?>/blog" class="nav-link px-2 link-body-emphasis">Blog</a></li>
-                    <li><a href="<?= ROOT ?>/search" class="nav-link px-2 link-body-emphasis">search</a></li>
-                    <li><a href="<?= ROOT ?>/contact" class="nav-link px-2 link-body-emphasis">Contact</a></li>
+                    <li><a href="<?= ROOT ?>"
+                            class="nav-link px-2 <?= $url[0] == 'home' ? 'link-primary' : 'link-dark' ?>">Home</a>
+                    </li>
+                    <li><a href="<?= ROOT ?>/blog"
+                            class="nav-link px-2 <?= $url[0] == 'blog' ? 'link-primary' : 'link-dark' ?>">Blog</a></li>
+                    <li><a href="<?= ROOT ?>/search"
+                            class="nav-link px-2 <?= $url[0] == 'search' ? 'link-primary' : 'link-dark' ?>">search</a>
+                    </li>
+                    <li><a href="<?= ROOT ?>/contact"
+                            class="nav-link px-2 <?= $url[0] == 'contact' ? 'link-primary' : 'link-dark' ?>">Contact</a>
+                    </li>
                     <li>
                         <span class="nav-link px-2 link-body-emphasis dropdown text-end">
-                            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                            <a href="#"
+                                class="d-block <?= $url[0] == 'category' ? 'link-primary' : 'link-dark' ?> text-decoration-none dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Category
                             </a>

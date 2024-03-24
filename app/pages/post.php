@@ -40,7 +40,7 @@
                             <?= date("jS M, Y", strtotime($row['date'])) ?>
                         </div>
                         <p class="card-text mb-auto">
-                            <?= nl2br($row['content']) ?>
+                            <?= nl2br(add_root_to_images($row['content'])) ?>
                         </p>
 
                     </div>
