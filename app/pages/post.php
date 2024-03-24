@@ -40,7 +40,7 @@
                             <?= date("jS M, Y", strtotime($row['date'])) ?>
                         </div>
                         <p class="card-text mb-auto">
-                            <?= nl2br(esc($row['content'])) ?>
+                            <?= nl2br($row['content']) ?>
                         </p>
 
                     </div>
