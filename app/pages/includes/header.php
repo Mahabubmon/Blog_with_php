@@ -51,11 +51,16 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="<?= ROOT ?>" class="nav-link px-2 link-secondary">Home</a></li>
                     <li><a href="<?= ROOT ?>/blog" class="nav-link px-2 link-body-emphasis">Blog</a></li>
+                    <li><a href="<?= ROOT ?>/search" class="nav-link px-2 link-body-emphasis">search</a></li>
                     <li><a href="<?= ROOT ?>/contact" class="nav-link px-2 link-body-emphasis">Contact</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                <form action="<?= ROOT ?>/search" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <div class="input-group">
+                        <input valu="<?= $_GET['find'] ?? '' ?>" name="find" type="search" class="form-control"
+                            placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-primary">Find</button>
+                    </div>
                 </form>
 
                 <div class="dropdown text-end">
