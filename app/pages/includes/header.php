@@ -49,30 +49,78 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="<?= ROOT ?>" class="nav-link px-2 link-secondary">Home</a></li>
-                    <li><a href="<?= ROOT ?>/blog" class="nav-link px-2 link-body-emphasis">Blog</a></li>
-                    <li><a href="<?= ROOT ?>/contact" class="nav-link px-2 link-body-emphasis">Contact</a></li>
+                    <li><a href="<?= ROOT ?>"
+                            class="nav-link px-2 <?= $url[0] == 'home' ? 'link-primary' : 'link-dark' ?>">Home</a>
+                    </li>
+                    <li><a href="<?= ROOT ?>/blog"
+                            class="nav-link px-2 <?= $url[0] == 'blog' ? 'link-primary' : 'link-dark' ?>">Blog</a></li>
+                    <li><a href="<?= ROOT ?>/search"
+                            class="nav-link px-2 <?= $url[0] == 'search' ? 'link-primary' : 'link-dark' ?>">search</a>
+                    </li>
+                    <li><a href="<?= ROOT ?>/contact"
+                            class="nav-link px-2 <?= $url[0] == 'contact' ? 'link-primary' : 'link-dark' ?>">Contact</a>
+                    </li>
+                    <li>
+                        <span class="nav-link px-2 link-body-emphasis dropdown text-end">
+                            <a href="#"
+                                class="d-block <?= $url[0] == 'category' ? 'link-primary' : 'link-dark' ?> text-decoration-none dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Category
+                            </a>
+                            <ul class="dropdown-menu text-small">
+                                <?php
+
+                                $query = "select * from categories order by id desc";
+                                $categories = query($query);
+                                ?>
+                                <?php if (!empty ($categories)): ?>
+                                    <?php foreach ($categories as $cat): ?>
+                                        <li><a class="dropdown-item" href="<?= ROOT ?>/category/<?= $cat['slug'] ?>">
+                                                <?= $cat['category'] ?>
+                                            </a></li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+
+
+                            </ul>
+                        </span>
+                    </li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                <form action="<?= ROOT ?>/search" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <div class="input-group">
+                        <input valu="<?= $_GET['find'] ?? '' ?>" name="find" type="search" class="form-control"
+                            placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-primary">Find</button>
+                    </div>
                 </form>
 
-                <div class="dropdown text-end">
-                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu text-small">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="<?= ROOT ?>/admin">Admin</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="<?= ROOT ?>/logout">Sign out</a></li>
-                    </ul>
-                </div>
+
+
+                <?php if (logged_in()): ?>
+                    <div class="dropdown text-end">
+                        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="<?= get_image(user('image')) ?>" alt="mdo" style="object-fit:cover;" width="32"
+                                height="32" class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="#">Hi,
+                                    <?= user('username') ?>
+                                </a></li>
+                            <li><a class="dropdown-item" href="<?= ROOT ?>/admin">Admin</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="<?= ROOT ?>/logout">Sign out</a></li>
+                        </ul>
+                    </div>
+                <?php endif;
+                ?>
+
+
+
             </div>
         </div>
     </header>

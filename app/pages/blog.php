@@ -2,7 +2,7 @@
 <?php include '../app/pages/includes/header.php';
 ?>
 
-<div>
+<div class="mx-auto col-md-10">
     <h3 class="mx-4">Blog</h3>
 
     <div class="row mb-2 justify-content-center">
