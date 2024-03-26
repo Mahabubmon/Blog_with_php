@@ -129,7 +129,7 @@
                 <th>#</th>
                 <th>Category</th>
                 <th>Slug</th>
-                <th>Disabled</th>
+                <th>Active</th>
                 <th>Action</th>
             </tr>
             <?php
@@ -153,7 +153,7 @@
                             <?= $row['slug'] ?>
                         </td>
                         <td>
-                            <?= $row['disabled'] ?>
+                            <?= $row['disabled'] ? 'No' : 'Yes' ?>
                         </td>
                         <td>
                             <a href="<?= ROOT ?>/admin/categories/edit/<?= $row['id'] ?>">

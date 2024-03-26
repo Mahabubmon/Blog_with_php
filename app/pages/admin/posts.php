@@ -1,6 +1,7 @@
 <?php if ($action == 'add'): ?>
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/summernote/summernote-lite.min.css">
 
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-12 mx-auto">
         <form method="post" enctype="multipart/form-data">
 
             <h1 class="h3 mb-3 fw-normal">Create Posts</h1>
@@ -45,7 +46,7 @@
 
             <div class="">
                 <textarea row="8" placeholder="Post Content" name="content" type="content" class="form-control"
-                    id="floatingInput"><?= old_value('content') ?></textarea>
+                    id="summernote"><?= old_value('content') ?></textarea>
                 <label for="floatingInput">Posts Content </label>
             </div>
             <?php if (!empty ($errors['content'])): ?>
@@ -86,6 +87,16 @@
 
         </form>
     </div>
+    <script src="<?= ROOT ?>/assets/js/jquery.js"> </script>
+    <script src="<?= ROOT ?>/assets/summernote/summernote-lite.min.js"> </script>
+
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Post content',
+            tabsize: 2,
+            height: 400
+        });
+    </script>
 
 <?php elseif ($action == 'edit'): ?>
 

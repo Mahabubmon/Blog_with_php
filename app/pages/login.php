@@ -1,6 +1,6 @@
 <?php
 
-if (!empty($_POST)) {
+if (!empty ($_POST)) {
 
     //validate
     $errors = [];
@@ -8,7 +8,7 @@ if (!empty($_POST)) {
 
     $row = query($query, ['email' => $_POST['email']]);
 
-    if (!empty($row)) {
+    if (!empty ($row)) {
 
 
         $data = [];
@@ -221,7 +221,7 @@ if (!empty($_POST)) {
                 <label for="floatingInput">Email address</label>
             </div>
 
-            <?php if (!empty($errors['email'])): ?>
+            <?php if (!empty ($errors['email'])): ?>
                 <div class="alert alert-danger ">
                     <?= $errors['email'] ?>
                 </div>
@@ -233,13 +233,13 @@ if (!empty($_POST)) {
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <?php if (!empty($errors['password'])): ?>
+            <?php if (!empty ($errors['password'])): ?>
                 <div class="alert alert-danger ">
                     <?= $errors['password'] ?>
                 </div>
             <?php endif; ?>
 
-            <div class="my-2">Don't have an account? <a href="<?php echo ROOT; ?>/signup">Signup here</a></div>
+            <!-- <div class="my-2">Don't have an account? <a href="<?php echo ROOT; ?>/signup">Signup here</a></div> -->
 
             <div class="form-check text-start my-3">
                 <input name="remember" class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
