@@ -1,5 +1,5 @@
 <?php
-
+// connection page
 
 if ($_SERVER['SERVER_NAME'] == "localhost") {
     define('DBUSER', "root");
