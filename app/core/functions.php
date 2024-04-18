@@ -1,5 +1,5 @@
 <?php
-
+//function query
 function query(string $query, array $data = [])
 {
     $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
@@ -14,6 +14,7 @@ function query(string $query, array $data = [])
     }
     return false;
 }
+//function query for each
 function query_row(string $query, array $data = [])
 {
     $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
@@ -29,7 +30,7 @@ function query_row(string $query, array $data = [])
     return false;
 }
 
-
+//page redirection
 function redirect($page)
 {
     header('Location: ' . ROOT . '/' . $page);
@@ -37,6 +38,7 @@ function redirect($page)
 
 }
 
+//catch old value of form
 function old_value($key, $default = '')
 {
     if (!empty ($_POST[$key]))
@@ -66,6 +68,7 @@ function old_select($key, $value, $default = '')
 
 }
 
+//image fetch 
 function get_image($file)
 {
     $file = $file ?? '';
