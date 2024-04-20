@@ -1,6 +1,7 @@
 <!-- header section  -->
 <?php include '../app/pages/includes/header.php';
 ?>
+<!-- this is search page -->
 
 <div class="mx-auto col-md-10">
     <h3 class="mx-4">Search</h3>

@@ -2,6 +2,8 @@
 <?php include '../app/pages/includes/header.php';
 ?>
 
+<!-- this is post page -->
+
 <div class="mx-auto col-md-10">
     <h3 class="mx-4">Blog</h3>
 
