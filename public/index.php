@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+// index page
 require "../app/core/init.php";
 
 
