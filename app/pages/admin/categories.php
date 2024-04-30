@@ -1,5 +1,5 @@
 <?php if ($action == 'add'): ?>
-
+<!-- category page -->
     <div class="col-md-6 mx-auto">
         <form method="post">
             <h1 class="h3 mb-3 fw-normal" style="margin-left: 55px">Create Category</h1>
